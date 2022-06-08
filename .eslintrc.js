@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-08 23:21:27
+ * @LastEditTime: 2022-06-08 23:24:55
  * @Description:
  * @Date: 2022-05-25 00:55:34
  * @Author: wangshan
@@ -19,17 +19,19 @@ module.exports = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     quotes: "off",
     "no-trailing-spaces": "off",
-    "no-restricted-syntax": [
-      // 关闭js特定的语法特性
-      //   "error",
-      //   {
-      //     selector: "ForInStatement", //
-      //     message: "不允许使用for-in声明",
-      //   },
-      {
-        selector: "FunctionExpression",
-        message: "不允许使用函数表达式",
-      },
-    ],
+    // "no-restricted-syntax": [
+    // 关闭js特定的语法特性
+    //   "error",
+    //   {
+    //     selector: "ForInStatement", //
+    //     message: "不允许使用for-in声明",
+    //   },
+    //   {
+    //     selector: "FunctionExpression",
+    //     message: "不允许使用函数表达式",
+    //   },
+    // ],
+    "no-restricted-syntax": "off", // 关闭js特定的语法特性
+    "no-alert": "off", // 关闭alert特性使用
   },
 };
