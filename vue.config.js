@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-01 00:54:03
+ * @LastEditTime: 2022-06-08 23:44:53
  * @Description:
  * @Date: 2022-05-26 22:58:57
  * @Author: wangshan
@@ -28,6 +28,27 @@ module.exports = {
         .plugin("webpack-bundle-analyzer")
         .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin);
     }
+    config.module
+      .rule("less")
+      .test(/\.less$/)
+      .use("style-loader")
+      .loader("style-loader")
+      .end()
+      .use("css-loader")
+      .loader("css-loader")
+      .end()
+      .use("less-loader")
+      .loader("less-loader")
+      .tap((option) => {
+        option = {
+          lessOptions: {
+            strictMath: true,
+          },
+          sourceMap: true,
+        };
+        return option;
+      })
+      .end();
   },
   devServer: {
     proxy: {

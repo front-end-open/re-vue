@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-08 23:26:13
+ * @LastEditTime: 2022-06-08 23:42:39
  * @Description:
  * @Date: 2022-05-25 00:55:34
  * @Author: wangshan
@@ -34,5 +34,6 @@ module.exports = {
     "no-restricted-syntax": "off", // 关闭js特定的语法特性
     "no-alert": "off", // 关闭alert特性使用
     "global-require": "off",
+    "no-param-reassign": "off",
   },
 };
