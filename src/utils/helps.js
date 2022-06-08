@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-05 23:38:25
+ * @LastEditTime: 2022-06-08 23:15:51
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -23,6 +23,7 @@ export function rendererPlus(vnode, container) {
   const el = document.createElement(vnode.tag);
 
   // 处理属性
+  /* eslintno-restricted-syntax: off */
   for (const key in vnode.props) {
     if (/^on/.test(key)) {
       el.addEventListener(key.substr(2).toLocaleLowerCase(), vnode.props[key]);
