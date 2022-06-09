@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-08 23:27:08
+ * @LastEditTime: 2022-06-09 00:11:13
  * @Description: 
  * @Date: 2022-06-05 23:32:51
  * @Author: wangshan
@@ -47,9 +47,9 @@ export default {
 }
 </style>
 
-<style lang="less" scoped>
+<!-- <style lang="less" scoped>
 .container {
   width: 100%;
   min-height: 100vh;
 }
-</style>
+</style> -->

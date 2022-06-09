@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-05 23:36:57
+ * @LastEditTime: 2022-06-09 00:48:28
  * @Description: 
  * @Date: 2022-05-26 23:31:11
  * @Author: wangshan
@@ -7,11 +7,12 @@
 -->
 <template>
   <div class="container">
-    <div class="left">
+    <!-- <div class="left">
       <router-link to="/profile">basic</router-link><br />
       <router-link to="/advance">runtime+complie</router-link> <br />
-      <router-link to="/render">渲染器[render]</router-link>
-    </div>
+      <router-link to="/render">渲染器[render]</router-link> <br />
+      <router-link to="/flex">适配</router-link>
+    </div> -->
     <div class="right">
       <div class="top">{{ date }}</div>
       <router-view></router-view>
@@ -44,7 +45,9 @@ export default {
 </script>
 
 <style scoped>
+/* rem = 10px */
 .container {
+  font-size: 500px;
   display: flex;
   align-items: stretch;
   height: 100%;
@@ -53,7 +56,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 400px;
+  width: 1920px;
   height: 100vh;
   padding: 12px;
   box-shadow: 0 0 4px 0 #ccc;

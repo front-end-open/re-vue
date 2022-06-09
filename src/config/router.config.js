@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-05 23:35:57
+ * @LastEditTime: 2022-06-09 00:42:44
  * @Description:
  * @Date: 2022-05-26 23:28:45
  * @Author: wangshan
@@ -12,7 +12,7 @@ export const routes = [
   {
     path: "/",
     component: BasicLayout,
-    redirect: "profile",
+    redirect: "flex",
     children: [
       {
         path: "profile",
@@ -25,6 +25,10 @@ export const routes = [
       {
         path: "render",
         component: () => import(/* webpackChunkName: "Advance" */ "../pages/Render"),
+      },
+      {
+        path: "flex",
+        component: () => import(/* webpackChunkName: "Flex" */ "../pages/flexbox"),
       },
     ],
   },

@@ -10,8 +10,12 @@
     "analyzer": "build=true npm run build"
   },
   "dependencies": {
+    "amfe-flexible": "^2.2.1",
     "core-js": "^3.6.5",
+    "less": "3.9.0",
+    "less-loader": "4.1.0",
     "moment": "^2.29.3",
+    "postcss-pxtorem": "^5.1.1",
     "vue": "^3.0.0",
     "vue-router": "4"
   },
@@ -26,8 +30,6 @@
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0",
-    "less": "^4.1.2",
-    "less-loader": "5.0.0",
     "style-loader": "^3.3.1",
     "webpack-bundle-analyzer": "^4.5.0"
   }

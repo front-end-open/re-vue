@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-08 23:44:53
+ * @LastEditTime: 2022-06-09 00:08:18
  * @Description:
  * @Date: 2022-05-26 22:58:57
  * @Author: wangshan
@@ -39,15 +39,6 @@ module.exports = {
       .end()
       .use("less-loader")
       .loader("less-loader")
-      .tap((option) => {
-        option = {
-          lessOptions: {
-            strictMath: true,
-          },
-          sourceMap: true,
-        };
-        return option;
-      })
       .end();
   },
   devServer: {

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-08 23:42:39
+ * @LastEditTime: 2022-06-09 00:31:45
  * @Description:
  * @Date: 2022-05-25 00:55:34
  * @Author: wangshan
@@ -35,5 +35,8 @@ module.exports = {
     "no-alert": "off", // 关闭alert特性使用
     "global-require": "off",
     "no-param-reassign": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
   },
 };
