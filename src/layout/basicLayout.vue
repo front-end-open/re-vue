@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-10 00:50:09
+ * @LastEditTime: 2022-06-11 00:02:58
  * @Description: 
  * @Date: 2022-05-26 23:31:11
  * @Author: wangshan
@@ -11,7 +11,8 @@
       <router-link to="/profile">basic</router-link><br />
       <router-link to="/advance">runtime+complie</router-link> <br />
       <router-link to="/render">渲染器[render]</router-link> <br />
-      <router-link to="/flex">适配</router-link>
+      <router-link to="/flex">适配</router-link> <br />
+      <router-link to="reactive" :replace="true">响应式系统</router-link>
     </div>
     <div class="right">
       <div class="top">{{ date }}</div>

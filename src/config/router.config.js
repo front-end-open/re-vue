@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-10 00:51:41
+ * @LastEditTime: 2022-06-11 00:01:59
  * @Description:
  * @Date: 2022-05-26 23:28:45
  * @Author: wangshan
@@ -29,6 +29,10 @@ export const routes = [
       {
         path: "flex",
         component: () => import(/* webpackChunkName: "Flex" */ "../pages/flexbox"),
+      },
+      {
+        path: "reactive",
+        component: () => import(/* webpackChunkName: "Reactity" */ "../pages/reactity"),
       },
     ],
   },

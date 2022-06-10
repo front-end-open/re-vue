@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-09 00:31:45
+ * @LastEditTime: 2022-06-11 00:35:36
  * @Description:
  * @Date: 2022-05-25 00:55:34
  * @Author: wangshan
@@ -38,5 +38,6 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "import/extensions": "off",
+    "no-plusplus": "off", // 关闭一元操作符检查
   },
 };
