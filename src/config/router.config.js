@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-09 00:42:44
+ * @LastEditTime: 2022-06-10 00:51:41
  * @Description:
  * @Date: 2022-05-26 23:28:45
  * @Author: wangshan
@@ -12,7 +12,7 @@ export const routes = [
   {
     path: "/",
     component: BasicLayout,
-    redirect: "flex",
+    redirect: "profile",
     children: [
       {
         path: "profile",
