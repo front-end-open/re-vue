@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-11 00:52:42
+ * @LastEditTime: 2022-06-11 23:44:05
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -19,7 +19,9 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+
 import { createProxy, noDone } from "./utils/mixin";
+import { handleError } from "../../utils/helps";
 // data
 // 基本示列
 let a = 1; // no-reactity
@@ -34,9 +36,15 @@ function updateA() {
 // life-cycle
 onMounted(() => {
   console.log("组件已经挂载");
-  createProxy();
+  //   createProxy();
+  // 注册错误处理器
+  handleError.regisErrorhandle((err) => {
+    console.log(err);
+  });
 
-  noDone();
+  // 任务分配
+  handleError.createtask(createProxy);
+  handleError.createtask(noDone);
 });
 </script>
 

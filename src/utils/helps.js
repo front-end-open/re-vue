@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-08 23:15:51
+ * @LastEditTime: 2022-06-12 00:15:28
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -41,3 +41,22 @@ export function rendererPlus(vnode, container) {
 
   container.appendChild(el);
 }
+
+// error-handle
+export const handleError = {
+  handleError: null,
+  createtask(fn) {
+    // debugger;
+    this.callErrorHadle(fn);
+  },
+  regisErrorhandle(errorCallback) {
+    this.handleError = errorCallback;
+  },
+  callErrorHadle(fn) {
+    try {
+      return fn && fn();
+    } catch (error) {
+      return this.handleError(error);
+    }
+  },
+};
