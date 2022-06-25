@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-12 00:15:28
+ * @LastEditTime: 2022-06-12 00:45:19
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -60,3 +60,29 @@ export const handleError = {
     }
   },
 };
+// 响应式系统实现-初级
+// 响应式关联副作用函数,触发目标对象的读取操作
+// 目标对象的属性更新操作，触发副作用函数的更新操作
+// 触发更新的副作用函数
+
+const bucket = new Set();
+const data = { text: "hello world" };
+export const obj = new Proxy(data, {
+  get(target, key) {
+    /* no-use-before-define: disable */
+    console.log("preSet", bucket);
+    bucket.add(effect);
+    console.log("newSet", bucket);
+    return target[key];
+  },
+  set(target, key, newVal) {
+    bucket.forEach((fn) => fn());
+
+    target[key] = newVal;
+    return true;
+  },
+});
+
+export function effect() {
+  document.getElementById("container").innerHTML = obj.text;
+}

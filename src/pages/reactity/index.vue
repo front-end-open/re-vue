@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-11 23:44:05
+ * @LastEditTime: 2022-06-12 00:49:05
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -15,13 +15,17 @@
   <span>no-reactity-{{ a }}</span>
   <p>reactity-{{ b }}</p>
   <button @click="updateA">add</button>
+
+  <!-- 响应式系统基础测试 -->
+  <h3>响应式系统基础版-测试</h3>
+  <div id="container"></div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 
 import { createProxy, noDone } from "./utils/mixin";
-import { handleError } from "../../utils/helps";
+import { handleError, obj, effect } from "../../utils/helps";
 // data
 // 基本示列
 let a = 1; // no-reactity
@@ -45,6 +49,12 @@ onMounted(() => {
   // 任务分配
   handleError.createtask(createProxy);
   handleError.createtask(noDone);
+
+  debugger;
+  // 响应式系统-基础版测试
+  effect(); // -> 读取
+  // 赋值更新
+  //   obj.text = "update text property of vlaue == 'test'";
 });
 </script>
 
