@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-12 00:49:05
+ * @LastEditTime: 2022-06-27 21:40:08
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -25,7 +25,7 @@
 import { onMounted, ref } from "vue";
 
 import { createProxy, noDone } from "./utils/mixin";
-import { handleError, obj, effect } from "../../utils/helps";
+import { handleError, effect } from "../../utils/helps";
 // data
 // 基本示列
 let a = 1; // no-reactity

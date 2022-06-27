@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-01 00:53:39
+ * @LastEditTime: 2022-06-27 21:41:04
  * @Description: 
  * @Date: 2022-05-26 23:37:13
  * @Author: wangshan
@@ -18,8 +18,9 @@
 
 <script>
 import { ref } from "vue";
+// import moment from "moment";
 import { Render } from "../../utils/helps"; // 渲染函数
-import moment from "moment";
+
 export default {
   name: "Basic",
   data() {
@@ -53,7 +54,7 @@ export default {
       },
     };
   },
-  setup(p) {
+  setup() {
     const count = ref(0);
     console.log(count);
     return {

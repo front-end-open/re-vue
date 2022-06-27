@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-27 17:03:32
+ * @LastEditTime: 2022-06-27 21:43:50
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -69,6 +69,9 @@ const bucket = new Set();
 const data = { text: "hello world" };
 export const obj = new Proxy(data, {
   get(target, key) {
+    function effect() {
+      document.getElementById("container").innerHTML = obj.text;
+    }
     /* no-use-before-define: disable */
     console.log("preSet", bucket);
     bucket.add(effect);
@@ -82,10 +85,6 @@ export const obj = new Proxy(data, {
     return true;
   },
 });
-
-export function effect() {
-  document.getElementById("container").innerHTML = obj.text;
-}
 
 // 供测试使用
 export function sum(a, b) {
