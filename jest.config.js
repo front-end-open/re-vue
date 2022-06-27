@@ -193,6 +193,9 @@
 // Whether to use watchman for file crawling
 // watchman: true,
 // };
+
+// ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+//  "src/**/*.{js,vue}",
 const path = require("path");
 
 module.exports = {
@@ -204,18 +207,16 @@ module.exports = {
     // "vue",
   ],
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/src/$1", // 类似 webpack.resolve.alias
+    "/^@(.*)$": "<rootDir>/src/$1", // 类似 webpack.resolve.alias
   },
   transform: {
     // 类似 webpack.module.rules
     "^.+\\.js$": "<rootDir>/node_modules/babel-jest", // 为Jest提供最新的Es2015语法
-    ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
   },
-  setupFiles: ["<rootDir>/test/unit/setup.js"], // 类似 webpack.entry
   coverageDirectory: "<rootDir>/test/unit/coverage", // 类似 webpack.output
   collectCoverageFrom: [
     // 类似 webpack 的 rule.include
-    "src/**/*.{js,vue}",
+    "src/**/*.{js}",
     "!src/main.js",
     "!src/router/index.js",
     "!**/node_modules/**",

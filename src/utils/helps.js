@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-12 00:45:19
+ * @LastEditTime: 2022-06-27 17:03:32
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -85,4 +85,9 @@ export const obj = new Proxy(data, {
 
 export function effect() {
   document.getElementById("container").innerHTML = obj.text;
+}
+
+// 供测试使用
+export function sum(a, b) {
+  return a + b;
 }
