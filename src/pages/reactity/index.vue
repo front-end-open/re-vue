@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-27 21:40:08
+ * @LastEditTime: 2022-06-27 23:52:21
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -19,13 +19,18 @@
   <!-- 响应式系统基础测试 -->
   <h3>响应式系统基础版-测试</h3>
   <div id="container"></div>
+
+  <Reactive />
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
+// eslint-disable-next-line
+import { onMounted, ref, nextTick, onUnmounted } from "vue";
 
 import { createProxy, noDone } from "./utils/mixin";
-import { handleError, effect } from "../../utils/helps";
+import { handleError, effect, obj } from "../../utils/helps";
+
+import Reactive from "./Reactivity.vue";
 // data
 // 基本示列
 let a = 1; // no-reactity
@@ -47,15 +52,17 @@ onMounted(() => {
   });
 
   // 任务分配
-  handleError.createtask(createProxy);
-  handleError.createtask(noDone);
+  //   handleError.createtask(createProxy);
+  //   handleError.createtask(noDone);
 
-  debugger;
+  //   debugger;
   // 响应式系统-基础版测试
   effect(); // -> 读取
-  // 赋值更新
-  //   obj.text = "update text property of vlaue == 'test'";
+  //   赋值更新
+  // 此表达式触发触发setter，同样会触发读取操作
+  obj.text = "update text property of vlaue == 'test'";
 });
+onUnmounted(() => console.log("组件卸载"));
 </script>
 
 <style scoped></style>

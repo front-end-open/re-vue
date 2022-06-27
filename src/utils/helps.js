@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-27 21:43:50
+ * @LastEditTime: 2022-06-27 22:16:08
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -64,27 +64,28 @@ export const handleError = {
 // 响应式关联副作用函数,触发目标对象的读取操作
 // 目标对象的属性更新操作，触发副作用函数的更新操作
 // 触发更新的副作用函数
-
 const bucket = new Set();
 const data = { text: "hello world" };
 export const obj = new Proxy(data, {
   get(target, key) {
-    function effect() {
-      document.getElementById("container").innerHTML = obj.text;
-    }
-    /* no-use-before-define: disable */
-    console.log("preSet", bucket);
     bucket.add(effect);
-    console.log("newSet", bucket);
+    console.log("preSet", bucket);
     return target[key];
   },
   set(target, key, newVal) {
-    bucket.forEach((fn) => fn());
-
     target[key] = newVal;
+
+    bucket.forEach((fn) => {
+      fn();
+    });
     return true;
   },
 });
+
+// 硬编码显示副作用函数
+export function effect() {
+  document.getElementById("container").innerHTML = obj.text;
+}
 
 // 供测试使用
 export function sum(a, b) {
