@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-28 00:02:24
+ * @LastEditTime: 2022-06-28 23:34:31
  * @Description:  响应式系统-version2
  * @Date: 2022-06-27 23:46:25
  * @Author: wangshan
@@ -16,6 +16,8 @@ import { onMounted, nextTick } from "vue";
 import { effect, obj } from "../../utils/reactivity";
 
 onMounted(() => {
+  console.log("reactivity----------------------2222");
+
   effect(() => {
     console.log("更新");
     document.getElementById("contain").innerHTML = obj.text;
