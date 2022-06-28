@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-27 23:52:21
+ * @LastEditTime: 2022-06-29 01:11:31
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -21,6 +21,7 @@
   <div id="container"></div>
 
   <Reactive />
+  <ReactiveT />
 </template>
 
 <script setup>
@@ -31,6 +32,7 @@ import { createProxy, noDone } from "./utils/mixin";
 import { handleError, effect, obj } from "../../utils/helps";
 
 import Reactive from "./Reactivity.vue";
+import ReactiveT from "./ReactivityT.vue";
 // data
 // 基本示列
 let a = 1; // no-reactity

@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-29 01:05:47
+ * @LastEditTime: 2022-06-29 01:21:31
  * @Description: 响应式系统完成版-第一版
  * @Date: 2022-06-28 23:36:34
  * @Author: wangshan
@@ -16,9 +16,14 @@
 let activeEffect;
 const bucket = new WeakMap();
 const data = { text: "Reactive-version-all" };
+export function effect(fn) {
+  activeEffect = fn;
 
+  fn(); // 执行副作用,触发副作用
+}
 export const obj = new Proxy(data, {
   get(target, key) {
+    console.log("读取");
     if (!activeEffect) return target[key];
     let depsMap = bucket.get(target);
 
@@ -33,7 +38,7 @@ export const obj = new Proxy(data, {
     }
 
     deps.add(activeEffect);
-
+    console.log(depsMap);
     return target[key];
   },
   set(target, key, newVal) {

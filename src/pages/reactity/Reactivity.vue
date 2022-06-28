@@ -20,7 +20,7 @@ onMounted(() => {
 
   effect(() => {
     console.log("更新");
-    document.getElementById("contain").innerHTML = obj.text;
+    document.getElementById("contain").innerHTML = "helo";
   });
 
   // 更新source
