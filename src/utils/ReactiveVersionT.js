@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-29 00:41:36
+ * @LastEditTime: 2022-06-29 01:05:47
  * @Description: 响应式系统完成版-第一版
  * @Date: 2022-06-28 23:36:34
  * @Author: wangshan
@@ -13,3 +13,39 @@
 
 // 建立键与副作用函数的关系
 // 收集副作用函数的数据结构采用，WeakMap
+let activeEffect;
+const bucket = new WeakMap();
+const data = { text: "Reactive-version-all" };
+
+export const obj = new Proxy(data, {
+  get(target, key) {
+    if (!activeEffect) return target[key];
+    let depsMap = bucket.get(target);
+
+    if (!depsMap) {
+      bucket.set(target, (depsMap = new Map()));
+    }
+
+    let deps = depsMap.get(key);
+
+    if (!deps) {
+      depsMap.set(key, (deps = new Set()));
+    }
+
+    deps.add(activeEffect);
+
+    return target[key];
+  },
+  set(target, key, newVal) {
+    target[key] = newVal;
+    const depsMap = bucket.get(target);
+    if (!depsMap) return;
+    const effets = depsMap.get(key);
+
+    /* eslint no-unused-expressions: "off" */
+    effets && effets.forEach((fn) => fn());
+
+    /* eslint consistent-return: "off" */
+    return true;
+  },
+});
