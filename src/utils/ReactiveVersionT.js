@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-29 01:21:31
+ * @LastEditTime: 2022-06-30 00:29:36
  * @Description: 响应式系统完成版-第一版
  * @Date: 2022-06-28 23:36:34
  * @Author: wangshan
@@ -23,34 +23,48 @@ export function effect(fn) {
 }
 export const obj = new Proxy(data, {
   get(target, key) {
-    console.log("读取");
     if (!activeEffect) return target[key];
-    let depsMap = bucket.get(target);
+    console.log("读取");
 
-    if (!depsMap) {
-      bucket.set(target, (depsMap = new Map()));
-    }
+    // eslint-disable-next-line no-use-before-define
+    track(target, key); // 追踪key
 
-    let deps = depsMap.get(key);
-
-    if (!deps) {
-      depsMap.set(key, (deps = new Set()));
-    }
-
-    deps.add(activeEffect);
-    console.log(depsMap);
     return target[key];
   },
   set(target, key, newVal) {
+    console.log("更新");
     target[key] = newVal;
-    const depsMap = bucket.get(target);
-    if (!depsMap) return;
-    const effets = depsMap.get(key);
 
-    /* eslint no-unused-expressions: "off" */
-    effets && effets.forEach((fn) => fn());
-
+    // eslint-disable-next-line no-use-before-define
+    trigger(target, key);
     /* eslint consistent-return: "off" */
     return true;
   },
 });
+
+// 抽离get内部副作用绑定逻辑
+function track(target, key) {
+  let depsMap = bucket.get(target);
+
+  if (!depsMap) {
+    bucket.set(target, (depsMap = new Map()));
+  }
+
+  let deps = depsMap.get(key);
+
+  if (!deps) {
+    depsMap.set(key, (deps = new Set()));
+  }
+
+  deps.add(activeEffect);
+}
+
+// 抽离触发副作用函数
+function trigger(target, key) {
+  const depsMap = bucket.get(target);
+  if (!depsMap) return;
+  const effets = depsMap.get(key);
+
+  /* eslint no-unused-expressions: "off" */
+  effets && effets.forEach((fn) => fn());
+}
