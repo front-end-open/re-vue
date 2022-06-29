@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-29 01:27:56
+ * @LastEditTime: 2022-06-29 21:49:08
  * @Description: 
  * @Date: 2022-06-29 01:07:36
  * @Author: wangshan
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { onMounted, nextTick } from "vue";
+import { onMounted } from "vue";
 
 import { effect, obj } from "../../utils/ReactiveVersionT.js";
 

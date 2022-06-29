@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-29 01:11:31
+ * @LastEditTime: 2022-06-29 21:49:22
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -28,7 +28,7 @@
 // eslint-disable-next-line
 import { onMounted, ref, nextTick, onUnmounted } from "vue";
 
-import { createProxy, noDone } from "./utils/mixin";
+// import { createProxy, noDone } from "./utils/mixin";
 import { handleError, effect, obj } from "../../utils/helps";
 
 import Reactive from "./Reactivity.vue";
