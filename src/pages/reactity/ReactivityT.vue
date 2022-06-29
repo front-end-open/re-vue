@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-29 21:49:08
+ * @LastEditTime: 2022-06-29 23:48:18
  * @Description: 
  * @Date: 2022-06-29 01:07:36
  * @Author: wangshan
@@ -34,6 +34,24 @@ onMounted(() => {
   setTimeout(() => {
     document.getElementById("cont").innerHTML = obj.noExit;
   }, 200);
+
+  // Map, WeakMap区别探究
+  const foo = new WeakMap();
+  const bar = new Map();
+  let z = null;
+  // eslint-disable-next-line wrap-iife
+  (function q() {
+    let a = { a: 1 };
+    const b = { b: 1 };
+    z = a; // 这里的强引用导致IIFE执行完毕，a没有被回收，weakmap内部的a弱引用依然可以访问内部的键.
+
+    foo.set(a, 1);
+    bar.set(b, 2);
+
+    console.log("key-map", foo.has(a), bar.has(b));
+  })();
+
+  console.log("map-weakmap", foo.has(z), bar.keys(), z, foo);
 });
 </script>
 

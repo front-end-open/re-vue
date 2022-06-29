@@ -3,6 +3,7 @@ node_modules
 /dist
 .cssrem
 .eslintignore
+.prettierrc
 
 
 # local env files
