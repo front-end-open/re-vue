@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-30 00:29:36
+ * @LastEditTime: 2022-06-30 22:44:12
  * @Description: 响应式系统完成版-第一版
  * @Date: 2022-06-28 23:36:34
  * @Author: wangshan
@@ -15,7 +15,7 @@
 // 收集副作用函数的数据结构采用，WeakMap
 let activeEffect;
 const bucket = new WeakMap();
-const data = { text: "Reactive-version-all" };
+const data = { text: "Reactive-version-all", hash: "hashMap" };
 export function effect(fn) {
   activeEffect = fn;
 
@@ -23,6 +23,7 @@ export function effect(fn) {
 }
 export const obj = new Proxy(data, {
   get(target, key) {
+    debugger;
     if (!activeEffect) return target[key];
     console.log("读取");
 
@@ -55,7 +56,7 @@ function track(target, key) {
   if (!deps) {
     depsMap.set(key, (deps = new Set()));
   }
-
+  console.log("efffect", bucket);
   deps.add(activeEffect);
 }
 

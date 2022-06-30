@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-30 00:15:33
+ * @LastEditTime: 2022-06-30 22:47:20
  * @Description: 
  * @Date: 2022-06-29 01:07:36
  * @Author: wangshan
@@ -22,6 +22,8 @@ onMounted(() => {
     console.log("副作用更新");
     document.getElementById("cont").innerHTML = obj.text;
   });
+  // eslint-disable-next-line no-unused-expressions
+  //   obj.q;
 
   setTimeout(() => {
     obj.noExit = "add new Key";
