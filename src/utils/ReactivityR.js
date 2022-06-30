@@ -1,18 +1,14 @@
 /*
- * @LastEditTime: 2022-06-30 22:48:48
- * @Description: 响应式系统完成版-第一版
- * @Date: 2022-06-28 23:36:34
+ * @LastEditTime: 2022-06-30 23:21:58
+ * @Description: 响应式系统-分支切换
+ * @Date: 2022-06-30 23:20:57
  * @Author: wangshan
  * @LastEditors: wangshan
  */
-/**
- * 这一版本，旨在从新设置代理对象源键对应副作用函数.而不是对不存在的依赖，也会触发存在依赖的副作用键，这其中比较明显的问题就是，对应关系的错误.
- * 从新设计收集副作用函数的桶
- *
- */
 
-// 建立键与副作用函数的关系
-// 收集副作用函数的数据结构采用，WeakMap
+/*
+分支切换：即是在算法表达对数据对象键的读取，触发不必要副作用函数的添加，遗留副作用函数导致不必要的更新
+*/
 let activeEffect;
 const bucket = new WeakMap();
 const data = { text: "Reactive-version-all", hash: "hashMap" };

@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-29 21:49:22
+ * @LastEditTime: 2022-06-30 23:25:43
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -22,6 +22,7 @@
 
   <Reactive />
   <ReactiveT />
+  <ReactiveR />
 </template>
 
 <script setup>
@@ -33,6 +34,7 @@ import { handleError, effect, obj } from "../../utils/helps";
 
 import Reactive from "./Reactivity.vue";
 import ReactiveT from "./ReactivityT.vue";
+import ReactiveR from "./BranchCheckout/index.vue";
 // data
 // 基本示列
 let a = 1; // no-reactity
