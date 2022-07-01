@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-30 23:21:58
+ * @LastEditTime: 2022-07-01 23:38:36
  * @Description: 响应式系统-分支切换
  * @Date: 2022-06-30 23:20:57
  * @Author: wangshan
@@ -12,11 +12,32 @@
 let activeEffect;
 const bucket = new WeakMap();
 const data = { text: "Reactive-version-all", hash: "hashMap" };
-export function effect(fn) {
-  activeEffect = fn;
 
-  fn(); // 执行副作用,触发副作用
+export function effect(fn) {
+  const effectFn = () => {
+    activeEffect = effectFn;
+
+    // eslint-disable-next-line no-use-before-define
+    cleanup(effectFn);
+
+    fn();
+  };
+
+  effectFn.deps = []; // 依赖合集,存储与副作用关联的依赖
+
+  effectFn(); // 执行副作用函数
 }
+
+// 清除副作用
+function cleanup(effectFn) {
+  for (let i = 0; i < effectFn.length; i++) {
+    const deps = effectFn.deps[i];
+    deps.delete(effectFn);
+  }
+
+  effectFn.deps.length = 0;
+}
+
 export const obj = new Proxy(data, {
   get(target, key) {
     // debugger;
@@ -52,8 +73,11 @@ function track(target, key) {
   if (!deps) {
     depsMap.set(key, (deps = new Set()));
   }
-  console.log("efffect", bucket);
-  deps.add(activeEffect);
+  // 当前激活的辅作用函数添加到依赖合集
+  deps.set(activeEffect);
+
+  // 添加与激活副作用关联的依赖合集
+  activeEffect.deps.push(deps);
 }
 
 // 抽离触发副作用函数
@@ -62,6 +86,8 @@ function trigger(target, key) {
   if (!depsMap) return;
   const effets = depsMap.get(key);
 
+  const effectsToRun = new Set(effets);
+  effectsToRun.forEach((effectFn) => effectFn());
   /* eslint no-unused-expressions: "off" */
-  effets && effets.forEach((fn) => fn());
+  //   effets && effets.forEach((fn) => fn());
 }

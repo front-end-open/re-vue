@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-06-30 23:25:43
+ * @LastEditTime: 2022-07-01 23:23:57
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -20,8 +20,8 @@
   <h3>响应式系统基础版-测试</h3>
   <div id="container"></div>
 
-  <Reactive />
-  <ReactiveT />
+  <!-- <Reactive />
+  <ReactiveT /> -->
   <ReactiveR />
 </template>
 
@@ -32,8 +32,8 @@ import { onMounted, ref, nextTick, onUnmounted } from "vue";
 // import { createProxy, noDone } from "./utils/mixin";
 import { handleError, effect, obj } from "../../utils/helps";
 
-import Reactive from "./Reactivity.vue";
-import ReactiveT from "./ReactivityT.vue";
+// import Reactive from "./Reactivity.vue";
+// import ReactiveT from "./ReactivityT.vue";
 import ReactiveR from "./BranchCheckout/index.vue";
 // data
 // 基本示列
