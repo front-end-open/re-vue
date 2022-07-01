@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-09 00:08:18
+ * @LastEditTime: 2022-07-02 03:17:35
  * @Description:
  * @Date: 2022-05-26 22:58:57
  * @Author: wangshan
@@ -28,18 +28,18 @@ module.exports = {
         .plugin("webpack-bundle-analyzer")
         .use(require("webpack-bundle-analyzer").BundleAnalyzerPlugin);
     }
-    config.module
-      .rule("less")
-      .test(/\.less$/)
-      .use("style-loader")
-      .loader("style-loader")
-      .end()
-      .use("css-loader")
-      .loader("css-loader")
-      .end()
-      .use("less-loader")
-      .loader("less-loader")
-      .end();
+    // config.module
+    //   .rule("less")
+    //   .test(/\.less$/)
+    //   .use("style-loader")
+    //   .loader("style-loader")
+    //   .end()
+    //   .use("css-loader")
+    //   .loader("css-loader")
+    //   .end()
+    //   .use("less-loader")
+    //   .loader("less-loader")
+    //   .end();
   },
   devServer: {
     proxy: {
