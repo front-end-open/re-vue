@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-07-02 01:35:59
+ * @LastEditTime: 2022-07-02 03:10:51
  * @Description: 响应式系统-分支切换
  * @Date: 2022-06-30 22:37:41
  * @Author: wangshan
@@ -39,4 +39,11 @@ onMounted(() => {
  */
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+@fontSize: 1000px;
+@fontColor: red;
+h2 {
+  font-size: @fontColor;
+  color: @fontColor;
+}
+</style>
