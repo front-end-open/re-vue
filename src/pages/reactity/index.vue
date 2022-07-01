@@ -1,5 +1,5 @@
 <!--
- * @LastEditTime: 2022-07-01 23:23:57
+ * @LastEditTime: 2022-07-02 01:27:25
  * @Description:  响应式系统
  * @Date: 2022-06-11 00:00:04
  * @Author: wangshan
@@ -48,7 +48,7 @@ function updateA() {
 
 // life-cycle
 onMounted(() => {
-  console.log("组件已经挂载");
+  //   console.log("组件已经挂载");
   //   createProxy();
   // 注册错误处理器
   handleError.regisErrorhandle((err) => {

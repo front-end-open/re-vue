@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-06-27 22:16:08
+ * @LastEditTime: 2022-07-02 01:27:10
  * @Description:
  * @Date: 2022-05-27 00:01:12
  * @Author: wangshan
@@ -69,7 +69,7 @@ const data = { text: "hello world" };
 export const obj = new Proxy(data, {
   get(target, key) {
     bucket.add(effect);
-    console.log("preSet", bucket);
+    // console.log("preSet", bucket);
     return target[key];
   },
   set(target, key, newVal) {

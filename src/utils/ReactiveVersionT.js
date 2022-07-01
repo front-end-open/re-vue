@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-01 23:30:56
+ * @LastEditTime: 2022-07-02 00:53:59
  * @Description: 响应式系统完成版-第一版
  * @Date: 2022-06-28 23:36:34
  * @Author: wangshan
@@ -62,7 +62,7 @@ function track(target, key) {
 
 // 抽离触发副作用函数
 function trigger(target, key) {
-  debugger;
+  //   debugger;
   const depsMap = bucket.get(target);
   if (!depsMap) return;
   const effets = depsMap.get(key);
