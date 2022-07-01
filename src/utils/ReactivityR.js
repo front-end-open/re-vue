@@ -1,5 +1,5 @@
 /*
- * @LastEditTime: 2022-07-01 23:38:36
+ * @LastEditTime: 2022-07-01 23:57:32
  * @Description: 响应式系统-分支切换
  * @Date: 2022-06-30 23:20:57
  * @Author: wangshan
@@ -86,7 +86,9 @@ function trigger(target, key) {
   if (!depsMap) return;
   const effets = depsMap.get(key);
 
-  const effectsToRun = new Set(effets);
+  if (!effets) return;
+
+  const effectsToRun = new Set(effets); // 从新设置set集合，避免在遍历set集合时，如果存在对Set的循环操作，并且循环内部有对集合的同一值，进行删除和添加操作。此时集合将进入死循环
   effectsToRun.forEach((effectFn) => effectFn());
   /* eslint no-unused-expressions: "off" */
   //   effets && effets.forEach((fn) => fn());
